@@ -5,25 +5,36 @@
 #include <stdlib.h>
 #include "../../includes.h"
 
-int read (){
-  char c;
-  FILE * fp;
+int read (int legajo, fpos_t * pos){
 
-  system("clear");
-  if ((fp = fopen("data/datos.csv", "r"))!= NULL){
+    char cad[MAX_LINE];
+    int key;
 
-    int c; 
-    while ((c = getc(fp)) != EOF) {
-      putc(c, stdout);
+    FILE * fp;
+    t_empleado * emp = malloc(sizeof(t_empleado));
+
+    if ((fp = fopen(ARCH_EMP, "rb+"))!= NULL){
+        //aux = ftell(fp);
+        fgetpos(fp, pos);
+        while (fgets(cad, sizeof(cad), fp)!= NULL){
+
+            empToStruct(emp, cad);
+            key = emp->legajo;
+
+            if ((key == legajo) && (emp->activo == ACTIVO)){
+
+                fclose(fp);
+                free(emp);
+                return 0;
+            }
+            fgetpos(fp, pos);
+        }
+        fclose(fp);
+        free(emp);
+        return 1;
+    } else {
+      printf("No existe archivo\n");
+      free(emp);
+      return 1;
     }
-
-  } else {
-    printf("Archivo no existe\n");
-    scanf("%c", &c);
-    return 1;
-  }
-
-  fclose(fp);
-  scanf("%c", &c);
-  return 0;
 }

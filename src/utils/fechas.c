@@ -1,11 +1,13 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h> //Libreria que contiene las funciones de tiempo del sistema.
 
 int main()
 {
 
 int i,j,k,m,l,cont;				 //variables para correr ciclos
-int dia,mes,anio,semana,moduloMes,febrero,total_mes;//Variables para almacenar el tiempo de la estructura tm.
+int dia,mes,anio,semana,moduloMes,febrero,total_mes;
+
 int seleccion=1;					//Variable para un ciclo de respuestas.
 i=j=k=m=l=cont=0; 				//Inicializo todas las variables a 0.
 
@@ -30,6 +32,17 @@ printf("Hoy es: %d/%d/%d \n\n\n",dia,mes+1,anio);//imprime las variables, mes+1?
 //seleccion esta inicializada en 1, asi que entrara una vez, luego mas abajo se pide si desea
 //volver a entrar a ciclo.
 
+
+
+
+
+
+
+
+
+
+
+
 while(seleccion != 0)
 {
 //Bisiesto.
@@ -45,16 +58,17 @@ febrero=28;
 
 switch (mes)
 {
-case 3: case 5: case 8: case 10: 
-total_mes=30; 
-break; 
-case 1: 
-total_mes=febrero; 
-break; 
-case 0: case 2: case 4: case 6: case 7: case 9: case 11: 
-total_mes=31; 
-break; 
+case 3: case 5: case 8: case 10:
+total_mes=30;
+break;
+case 1:
+total_mes=febrero;
+break;
+case 0: case 2: case 4: case 6: case 7: case 9: case 11:
+total_mes=31;
+break;
 }
+
 
 //Asignar nombre del mes
 //En esta parte se imprime la cabecera del calendario mes, y anio.
@@ -74,6 +88,12 @@ case 9:printf("\t\tOCTUBRE\t%d",anio);break;
 case 10:printf("\t\tNOVIEMBRE\t%d",anio);break;
 case 11:printf("\t\tDICIEMBRE\t%d",anio);break;
 }
+
+
+
+
+
+
 
 //Modulo Mes...
 //En wikipedia ya hay una tabla, para evitar mas calculos la voy a usar.
@@ -115,6 +135,13 @@ if (febrero==29) //ya calcule el anio bisisesto, asi que no volvere a hacerlo.
 		case 11:moduloMes=5;break;
 	}
 }
+
+
+
+
+
+
+
 //Calculo del primer dia de la semana.
 //Este algoritmo esta en la wikipedia, lo modificamos para que calcule el primer dia del mes
 //En [http://es.wikipedia.org/wiki/Algoritmo_para_calcular_el_dia_de_la_semana este algoritmo]
@@ -125,7 +152,7 @@ semana=((anio-1)%7+ ((anio-1)/4 -(3*((anio-1)/100+1)/4))%7+moduloMes+1%7)%7;
 //Impresion de dias
 printf("\nDo\tLu\tMar\tMier\tJue\tVier\tSab\n");
 
-	
+
 		for(m=0;m<semana;m++)//dar espacios para que el primer dia calce.
 		printf("\t");
 
@@ -133,7 +160,7 @@ printf("\nDo\tLu\tMar\tMier\tJue\tVier\tSab\n");
 		{
 			if(i==8-semana||i==15-semana||i==22-semana||i==29-semana || i== 36-semana)
 				printf("\n%d\t",i);
-			else	
+			else
 				printf("%d\t",i);
 		}
 // los i==8-semana... y los otros es para que la condicional cada 7 dias imprima un \n es decir

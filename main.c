@@ -16,44 +16,28 @@
 #include <string.h>
 #include "includes.h"
 
-
-/*=====================================================================
-                          LISTADOS
-=======================================================================*/
-
-int list (){
-  char c;
-  system("clear");
-  read();
-  scanf("%c", &c);
-  return 0;
-}
-
-
-
 /*=====================================================================
                           PROGRAMA PRINCIPAL
-=======================================================================*/	 
+=======================================================================*/
 
 int main(int argc, char *argv[])
 {
-  int opcion, salir;
+  int opcion, salir=-1;
   char c;
   while (salir != 0){
-    menu(&opcion);
+    opcion = menu(0, 4);
     switch (opcion) {
     case 0: salir=0; break;
     case 1: create(); break;
     case 2: delete(); break;
-    case 3: update(); break; 
+    case 3: update(); break;
     case 4: list(); break;
-    case 5: f_empleado(); break;
     default:  system("clear");
               printf("MAL\n");
               scanf("%c",&c);
               break;
     }
-    scanf("%c",&c);
+    //scanf("%c",&c);
   }
   return 0;
 }
