@@ -4,9 +4,9 @@ Aplicacion para ejercitación de conceptos basicos de ANSI C
 
 ## Descripción
     
-    Modulo crud de empleados y listados por 3 criterios siferentes. La aplicación almacena en archivos, información requerida de empleados. Esta información se define en estructuras (registros). 
+Modulo crud de empleados y listados por 3 criterios siferentes. La aplicación almacena en archivos, información requerida de empleados. Esta información se define en estructuras (registros). 
 
-    Los empleados se dividen en jerarquicos y no jerarquicos, por lo que se cuenta con 3 criterios para listar (jerarquicos, no jerarquicos y total).
+Los empleados se dividen en jerarquicos y no jerarquicos, por lo que se cuenta con 3 criterios para listar (jerarquicos, no jerarquicos y total).
 
 
 ## Features
