@@ -3,6 +3,18 @@
 #include <string.h>
 #include "../../includes.h"
 
+/**
+*
+* @file   confirma.c
+*
+*
+* @brief  imprime un mensaje de confirmacion y valida la entrada por si o no
+* @param  { char * } - mensaje
+* @return { int } - status
+*
+*
+*/
+
 int confirma(char * msg){
     char * input = malloc(MAX_BUFF);
     do{
@@ -13,9 +25,9 @@ int confirma(char * msg){
 
     if (strcmp(input, "N")==0 || strcmp(input, "n")==0){
         free(input);
-        return 1;
-    } 
+        return FAILED;
+    }
     free(input);
-    return 0;
+    return SUCCESS;
 }
 

@@ -2,6 +2,18 @@
 #include <stdlib.h>
 #include "../../includes.h"
 
+/**
+*
+* @file   menuLists.c
+*
+*
+* @brief  imprime menu de listados
+* @param  { - }
+* @return { - }
+*
+*
+*/
+
 void printMenuLists () {
   system("clear");
   printf("==========================================\n");

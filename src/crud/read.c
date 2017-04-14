@@ -1,11 +1,20 @@
-/*=====================================================================
-                          MOSTRAR EMPLEADO
-=======================================================================*/
 #include <stdio.h>
 #include <stdlib.h>
 #include "../../includes.h"
 
-int read (int legajo, fpos_t * pos){
+/**
+*
+* @file
+*
+*
+* @brief
+* @param
+* @return
+*
+*
+*/
+/*
+int read (int legajo){
 
     char cad[MAX_LINE];
     int key;
@@ -25,16 +34,17 @@ int read (int legajo, fpos_t * pos){
 
                 fclose(fp);
                 free(emp);
-                return 0;
+                return SUCCESS;
             }
             fgetpos(fp, pos);
         }
         fclose(fp);
         free(emp);
-        return 1;
+        return FAILED;
     } else {
       printf("No existe archivo\n");
       free(emp);
-      return 1;
+      return FAILED;
     }
 }
+*/

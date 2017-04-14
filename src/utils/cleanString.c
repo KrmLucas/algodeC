@@ -3,8 +3,20 @@
 #include <string.h>
 #include "../../includes.h"
 
+/**
+*
+* @file   cleanString.c
+*
+*
+* @brief  valida una cadena por ausencia de caracteres especiales y numeros
+* @param  { char * } - puntero a cadena de entrada
+* @return { int } - status
+*
+*
+*/
+
 int clean (char * cad){
-    
+
     for (int i = 0; i<strlen(cad); i++){
         if (cad[i] < 65 && cad[i] != 32)
             return 1;
@@ -22,9 +34,8 @@ int cleanString(char * msge, char * cad) {
 
     do {
         printf("%s", msge);
-        fflush( stdin );
         scanf(" %[^\n]", cad);
-        getchar();
+        strcat(cad, "\0");
     } while (clean(cad) == 1);
 
     return 0;

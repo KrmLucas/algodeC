@@ -4,13 +4,23 @@
 #include <ctype.h>
 #include "../../includes.h"
 
+/**
+*
+* @file   validateEmp.c
+*
+*
+* @brief  valida el ingreso de datos para un registro de tipo empleado
+* @param  {t_empleado *, int} - puntero a registro empleado - clave registro
+* @return { int } - status
+*
+*
+*/
+
 
 int validateEmp(t_empleado * emp, int key){
-    char input[MAX_BUFF];
+    char * input = malloc(sizeof(MAX_BUFF));
     int opcion;
-
-    //Nro Legajo
-    //opcion = enteroEnRango("[*] Legajo: [Debe ser un entero positivo]\n", 0, MAX_LEGAJO);
+    flush_buff(input);
     emp->legajo = key;
 
     //Nombre
@@ -18,7 +28,6 @@ int validateEmp(t_empleado * emp, int key){
     strncpy(emp->nombre, input, strlen(input));
 
     //Cargo
-    fflush(stdin);
     opcion = enteroEnRango("[*] Cargo: [1-> Jerarquico - 2-> Operario]\n", 1, 2);
 
     if (opcion == 1) {
@@ -30,19 +39,19 @@ int validateEmp(t_empleado * emp, int key){
         strcpy(emp->jerarquia.d2.nombreOficina, input);
 
         //Cantidad de empleados
-        fflush(stdin);
         opcion = enteroEnRango("[*] Cantidad de empleados: [Debe ser un entero]\n", 0, 10000);
-        sprintf(emp->jerarquia.d2.cantEmpleados, "%d", opcion);
+        emp->jerarquia.d2.cantEmpleados = opcion;
+
     } else {
         //Operario
         emp->cargo = operario;
 
         //Categoria
-        fflush(stdin);
         cleanString("[*] Categoría: [No debe contener caracteres especiales ni numeros]\n", input);
         strcpy(emp->jerarquia.d1.categoria, input);
+
     }
     emp->activo = 1;
-    //strcpy(emp->activo, ACTIVO);
+    free(input);
     return 0;
 }

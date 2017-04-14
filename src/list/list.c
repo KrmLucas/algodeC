@@ -1,6 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../../includes.h" 
+#include "../../includes.h"
+
+/**
+*
+* @file   list.c
+*
+*
+* @brief  enrutador de listados
+* @param  { - }
+* @return { int } - status
+*
+*
+*/
 
 int list(){
 
@@ -9,15 +21,13 @@ int list(){
     do {
         opcion = menuList();
         switch (opcion) {
-        case 0: salir=0; break;
-        case 1: listJefes(); break;
-        case 2: listOperarios(); break;
-        case 3: listTotal(); break; 
-        default:  system("clear");
-                printf("MAL\n");
-                getchar();
-                break;
+            case 0: salir=0; break;
+            case 1: findAll(LIST_JERARQUICOS); break;
+            case 2: findAll(LIST_NO_JERARQUICOS); break;
+            case 3: findAll(LIST_ALL); break;
+            default: break;
         }
+        getchar();
     } while (salir != 0);
 
     return 0;

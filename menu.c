@@ -1,6 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../../includes.h"
+#include "includes.h"
+
+/**
+*
+* @file   menu.c
+*
+*
+* @brief  imprime el menu principal de la aplicacion
+* @param  { - }
+* @return { - }
+*
+*
+*/
 
 void printMenu () {
   system("clear");

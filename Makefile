@@ -1,7 +1,9 @@
-CRUD = create.o read.o update.o delete.o
-UTILS = src/utils/menu.c src/utils/cleanString.c src/utils/confirma.c src/utils/enteroEnRango.c
-EMPLEADO = validateEmp.o empToStruct.o printEmpleado.o printJefe.o printOperario.o printTotal.o
-LISTS = list.o listJefes.o listOperarios.o listTotal.o menuLists.o
+CRUD = create.o delete.o update.o
+UTILS = src/utils/cleanString.c src/utils/confirma.c src/utils/enteroEnRango.c src/utils/flush_buff.c
+EMPLEADO = validateEmp.o printEmpleado.o
+LISTS = list.o encabezados.o menuLists.o
+
+IO = insert.o findById.o findAll.o
 
 CFLAGLS = -g -Wall
 
@@ -9,8 +11,8 @@ CFLAGLS = -g -Wall
 all: programa clean
 
 #Enlazando para obtener .o
-programa: main.o $(CRUD) $(EMPLEADO) $(LISTS)
-	gcc $(CFLAGLS) -o programa main.o $(CRUD) $(EMPLEADO) $(LISTS) $(UTILS)
+programa: main.o menu.o $(CRUD) $(EMPLEADO) $(IO) $(LISTS)
+	gcc $(CFLAGLS) -o programa main.o menu.o $(CRUD) $(EMPLEADO) $(UTILS) $(IO) $(LISTS)
 
 main.o: main.c includes.h
 	gcc $(CFLAGLS) -c main.c
@@ -20,8 +22,8 @@ main.o: main.c includes.h
 create.o: src/crud/create.c includes.h
 	gcc $(CFLAGLS) -c src/crud/create.c
 
-read.o: src/crud/read.c includes.h
-	gcc $(CFLAGLS) -c src/crud/read.c
+#read.o: src/crud/read.c includes.h
+#	gcc $(CFLAGLS) -c src/crud/read.c
 
 update.o: src/crud/update.c includes.h
 	gcc $(CFLAGLS) -c src/crud/update.c
@@ -35,42 +37,36 @@ delete.o: src/crud/delete.c includes.h
 validateEmp.o: src/empleado/validateEmp.c includes.h
 	gcc $(CFLAGLS) -c src/empleado/validateEmp.c
 
-empToStruct.o: src/empleado/empToStruct.c includes.h
-	gcc $(CFLAGLS) -c src/empleado/empToStruct.c
-
 printEmpleado.o: src/empleado/printEmpleado.c includes.h
 	gcc $(CFLAGLS) -c src/empleado/printEmpleado.c
 
-printJefe.o: src/empleado/printJefe.c includes.h
-	gcc $(CFLAGLS) -c src/empleado/printJefe.c
-
-printOperario.o: src/empleado/printOperario.c includes.h
-	gcc $(CFLAGLS) -c src/empleado/printOperario.c
-
-printTotal.o: src/empleado/printTotal.c includes.h
-	gcc $(CFLAGLS) -c src/empleado/printTotal.c
 #######################################
 #		lists files
 #######################################
 list.o: src/list/list.c includes.h
 	gcc $(CFLAGLS) -c src/list/list.c
 
-listJefes.o: src/list/listJefes.c includes.h
-	gcc $(CFLAGLS) -c src/list/listJefes.c
-
-listOperarios.o: src/list/listOperarios.c includes.h
-	gcc $(CFLAGLS) -c src/list/listOperarios.c
-
-listTotal.o: src/list/listTotal.c includes.h
-	gcc $(CFLAGLS) -c src/list/listTotal.c
+encabezados.o: src/list/encabezados.c includes.h
+	gcc $(CFLAGLS) -c src/list/encabezados.c
 
 menuLists.o: src/list/menuLists.c includes.h
 	gcc $(CFLAGLS) -c src/list/menuLists.c
 
+menu.o: menu.c includes.h
+	gcc $(CFLAGLS) -c menu.c
 #-------------------
 #	conexion files
 conexion.o: data/conexion.c includes.h
 	gcc $(CFLAGLS) -c data/conexion.c
+
+insert.o: src/io/insert.c includes.h
+	gcc $(CFLAGLS) -c src/io/insert.c
+
+findById.o: src/io/findById.c includes.h
+	gcc $(CFLAGLS) -c src/io/findById.c
+
+findAll.o: src/io/findAll.c includes.h
+	gcc $(CFLAGLS) -c src/io/findAll.c
 
 clean:
 	rm *.o
