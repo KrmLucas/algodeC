@@ -16,14 +16,15 @@
 
 void printMenu () {
   system("clear");
-  printf("==========================================\n");
-  printf("              MENU PRINCIPAL              \n");
-  printf("==========================================\n");
+  printf("============================================================================\n");
+  printf("                              MENU PRINCIPAL                                \n");
+  printf("============================================================================\n");
   printf("\n");
   printf("[*] Altas -> 1\n");
   printf("[*] Bajas -> 2\n");
   printf("[*] Modificaciones -> 3\n");
-  printf("[*] Listados -> 4\n");
+  printf("[*] Busqueda -> 4\n");
+  printf("[*] Listados -> 5\n");
   printf("\n");
   printf("Salir -> 0\n");
 }

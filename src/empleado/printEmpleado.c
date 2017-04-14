@@ -24,6 +24,7 @@ int printEmpleado (t_empleado * emp){
     printf("\n");
     printf("[*] Legajo: %d\n", emp->legajo);
     printf("[*] Nombre: %s\n", emp->nombre);
+    printf("[*] Fecha Nac: %s\n", emp->fecha);
     if (emp->cargo == jefe){
         printf("[*] cargo: Jefe\n");
         printf("[*] Oficina: %s\n", emp->jerarquia.d2.nombreOficina);

@@ -25,9 +25,9 @@ int confirma(char * msg){
 
     if (strcmp(input, "N")==0 || strcmp(input, "n")==0){
         free(input);
-        return FAILED;
+        return 1;
     }
     free(input);
-    return SUCCESS;
+    return 0;
 }
 

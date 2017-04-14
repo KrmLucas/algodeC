@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 #include "../../includes.h"
 
 /**
@@ -20,12 +19,15 @@
 int validateEmp(t_empleado * emp, int key){
     char * input = malloc(sizeof(MAX_BUFF));
     int opcion;
-    flush_buff(input);
     emp->legajo = key;
 
     //Nombre
     cleanString("[*] Nombre: [No debe contener caracteres especiales ni numeros]\n", input);
     strncpy(emp->nombre, input, strlen(input));
+
+    //Fecha de nacimiento
+    getFecha(input);
+    strncpy(emp->fecha, input, strlen(input));
 
     //Cargo
     opcion = enteroEnRango("[*] Cargo: [1-> Jerarquico - 2-> Operario]\n", 1, 2);
@@ -51,7 +53,6 @@ int validateEmp(t_empleado * emp, int key){
         strcpy(emp->jerarquia.d1.categoria, input);
 
     }
-    emp->activo = 1;
     free(input);
     return 0;
 }

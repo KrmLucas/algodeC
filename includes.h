@@ -1,4 +1,3 @@
-
 #define ARCH_EMP "data/empleados.dat"
 #define ARCH_INDEX "data/index.dat"
 
@@ -46,7 +45,7 @@ typedef union {
 typedef struct {
     int legajo;
     char nombre[MAX_BUFF];
-    int activo;
+    char fecha[MAX_BUFF];
     t_tipoempleado cargo;
     templeado jerarquia;
 }t_empleado;
@@ -62,7 +61,7 @@ int menu (int, int);
 * ABM
 ***************/
 int create();
-//int read(int, fpos_t *);
+int read();
 int update();
 int delete();
 
@@ -92,13 +91,12 @@ int cleanString(char *, char *);
 int clean (char *);
 int confirma(char *);
 int enteroEnRango(char *, int, int);
-void flush_buff(char *);
+int getFecha(char *);
+int validateFecha(int *, int *, int *);
 
 /**************
-* CONEXION
+* IO
 ***************/
-FILE * connect(char *);
-int closeConnect(FILE *fp);
 int insert(t_empleado *, int);
 int findById(t_empleado *, int);
 int findAll(int);

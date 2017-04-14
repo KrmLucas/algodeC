@@ -1,50 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "../../includes.h"
 
 /**
 *
-* @file
+* @file   read.c
 *
 *
-* @brief
-* @param
-* @return
+* @brief  busca un empleado e imprime sus datos
+* @param  { - }
+* @return { int } status
 *
 *
 */
-/*
-int read (int legajo){
 
-    char cad[MAX_LINE];
-    int key;
+int read (){
 
-    FILE * fp;
+    int legajo;
+
     t_empleado * emp = malloc(sizeof(t_empleado));
 
-    if ((fp = fopen(ARCH_EMP, "rb+"))!= NULL){
-        //aux = ftell(fp);
-        fgetpos(fp, pos);
-        while (fgets(cad, sizeof(cad), fp)!= NULL){
+    do {
 
-            empToStruct(emp, cad);
-            key = emp->legajo;
+        system("clear");
+        printf("=========================================================================\n");
+        printf("                      Buscar Empleado                              \n");
+        printf("=========================================================================\n");
+        printf("\n");
 
-            if ((key == legajo) && (emp->activo == ACTIVO)){
+        legajo = enteroEnRango("[*] Ingrese N° de legajo: ", 0, MAX_LEGAJO);
 
-                fclose(fp);
-                free(emp);
-                return SUCCESS;
-            }
-            fgetpos(fp, pos);
+        if (findById(emp, legajo)==SUCCESS) {
+
+            printEmpleado(emp);
+
+        } else {
+            printf("No existe empleado con ese legajo\n");
         }
-        fclose(fp);
-        free(emp);
-        return FAILED;
-    } else {
-      printf("No existe archivo\n");
-      free(emp);
-      return FAILED;
-    }
+
+    } while (confirma("Desea continuar? s/n")==SUCCESS);
+    free(emp);
+    return 0;
 }
-*/

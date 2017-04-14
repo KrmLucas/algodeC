@@ -46,13 +46,13 @@ int insert(t_empleado * emp, int mode){
 
                 //datos
                 pos_f = ftell(fp);
-                fprintf(fp, "%d\t %s\t %s\t %s\t %d\t %d\t \n", emp->legajo, emp->nombre, "jerarquico", emp->jerarquia.d2.nombreOficina, emp->jerarquia.d2.cantEmpleados, emp->activo);
+                fprintf(fp, "%d\t %s\t %s\t %s\t %s\t %d\t \n", emp->legajo, emp->nombre, emp->fecha, "jerarquico", emp->jerarquia.d2.nombreOficina, emp->jerarquia.d2.cantEmpleados);
 
             } else {
                 tipoReg = NO_JERARQUICO;
                 //datos
                 pos_f = ftell(fp);
-                fprintf(fp, "%d\t %s\t %s\t %s\t %d\t \n", emp->legajo, emp->nombre, "operario", emp->jerarquia.d1.categoria, emp->activo);
+                fprintf(fp, "%d\t %s\t %s\t %s\t %s\t \n", emp->legajo, emp->nombre, emp->fecha, "operario", emp->jerarquia.d1.categoria);
 
             }
             //insertamos en el archivo de indices
@@ -74,13 +74,13 @@ int insert(t_empleado * emp, int mode){
                     tipoReg = JERARQUICO;
                     /*  Arch de datos  */
                     pos_f = ftell(fp); //Posicion de comienzo del registro
-                    fprintf(fp, "%d\t %s\t %s\t %s\t %d\t %d\t \n", emp->legajo, emp->nombre, "jerarquico", emp->jerarquia.d2.nombreOficina, emp->jerarquia.d2.cantEmpleados, emp->activo);
+                    fprintf(fp, "%d\t %s\t %s\t %s\t %s\t %d\t \n", emp->legajo, emp->nombre, emp->fecha, "jerarquico", emp->jerarquia.d2.nombreOficina, emp->jerarquia.d2.cantEmpleados);
 
                 } else {
                     tipoReg = NO_JERARQUICO;
                     /* Arch de datos*/
                     pos_f = ftell(fp);
-                    fprintf(fp, "%d\t %s\t %s\t %s\t %d\t \n", emp->legajo, emp->nombre, "operario", emp->jerarquia.d1.categoria, emp->activo);
+                    fprintf(fp, "%d\t %s\t %s\t %s\t %s\t \n", emp->legajo, emp->nombre, emp->fecha, "operario", emp->jerarquia.d1.categoria);
 
                 }
                 /*  Arch de indices  */

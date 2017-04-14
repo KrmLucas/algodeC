@@ -21,7 +21,7 @@ void enc_jefes (){
     printf("                      Listado Personal Jerarquico                      \n");
     printf("==============================================================================\n");
     printf("\n");
-    printf("Legajo\t\t Nombre\t\t Oficina\t\t  Cantidad Empleados\t\n");
+    printf("Legajo\t Nombre\t\t Fecha Nac\t Oficina\t  Cantidad Empleados\t\n");
     printf("------------------------------------------------------------------------------\n");
 
 }
@@ -33,7 +33,7 @@ void enc_operarios (){
     printf("                           Listado Operarios                              \n");
     printf("==========================================================================\n");
     printf("\n");
-    printf("Legajo \t\t Nombre \t\t\t Categoria\t\t\n");
+    printf("Legajo \t\t Nombre \t Fecha Nac\t Categoria\t\t\n");
     printf("--------------------------------------------------------------------------\n");
 
 }
@@ -45,7 +45,7 @@ void enc_total (){
     printf("                            Listado Total                                 \n");
     printf("==========================================================================\n");
     printf("\n");
-    printf("Legajo \t\t Nombre \t\t\t Cargo\t\t \n");
+    printf("Legajo \t\t Nombre \t Fecha Nac\t Cargo\t\t \n");
     printf("--------------------------------------------------------------------------\n");
 
 }

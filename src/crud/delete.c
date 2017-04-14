@@ -25,7 +25,7 @@ int delete (){
 
         system("clear");
         printf("=========================================================================\n");
-        printf("                            Eliminar Empleado                            \n");
+        printf("                      Eliminar Empleado                            \n");
         printf("=========================================================================\n");
         printf("\n");
 
